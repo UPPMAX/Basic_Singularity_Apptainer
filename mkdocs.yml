@@ -1,5 +1,5 @@
 site_name: 'Basic Singularity/Apptainer'
-repo_url: https://github.com/pmitev/UPPMAX-Singularity-workshop
+repo_url: https://github.com/UPPMAX/Basic_Singularity_Apptainer
 edit_uri: edit/main/docs/
 nav:
   - Home: index.md
@@ -103,4 +103,4 @@ extra_javascript:
   - javascripts/config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-site_url: https://pmitev.github.io/UPPMAX-Singularity-workshop/
+site_url: https://UPPMAX.github.io/Basic_Singularity_Apptainer/
