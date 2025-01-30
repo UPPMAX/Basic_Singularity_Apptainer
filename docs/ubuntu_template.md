@@ -36,6 +36,7 @@ From: ubuntu:24.04
 
 
   # Sourcing file when running/executing the container
+  # Note: function declarations are not preserved in the sunsecuent bash shell
   # cp /usr/local/gromacs/bin/ACTRC.bash   /.singularity.d/env/99-ACTRC.sh
 
 # cat to a file
