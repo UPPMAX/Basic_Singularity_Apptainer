@@ -1,7 +1,8 @@
 # Alphafold3 ([Kebnekaise](https://www.hpc2n.umu.se/resources/hardware/kebnekaise))
 
-Other times, installation of some software are not provided besides docker containers
-(which are not supported in Swedish HPC centers) as in the case of Alphafold, a 
+Other times, installation instructions for some software are not provided  or 
+are only available for specific workflows, for instance, docker containers
+(which are not supported in Swedish HPC centers). This is the case of Alphafold3, a 
 software for protein structure prediction. 
 
 ## Setup 
