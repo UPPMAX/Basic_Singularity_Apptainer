@@ -1,4 +1,4 @@
-# Singularity MPI ([Kebnekaise](https://www.hpc2n.umu.se/resources/hardware/kebnekaise))
+# Singularity/Apptainer MPI ([Kebnekaise](https://www.hpc2n.umu.se/resources/hardware/kebnekaise))
 
 ## Setup 
 
@@ -68,6 +68,10 @@ mpirun -np 2 /osu-micro-benchmarks/mpi/pt2pt/osu_latency
 #Singularity container
 mpirun -np 2 singularity run osu_benchmarks.sif pt2pt/osu_latency
 ```
+
+In the case of Apptainer, one can build the container on Kebnekaise as it
+doesn't require root permissions. A similar batch script can be used with the
+*apptainer* name instead of *singularity*. 
 
 ## Benchmark results
 
