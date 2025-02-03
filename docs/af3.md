@@ -6,9 +6,8 @@ software for protein structure prediction.
 
 ## Setup 
 
-In the [Alphafold3](https://github.com/google-deepmind/alphafold3/tree/main)  
-repository you can find the code that you can clone. In the root directory of the
-clonned repository you can place the following definition file (taken from issue #23
+On the [Alphafold3](https://github.com/google-deepmind/alphafold3/tree/main) repository you can find the code that you can clone. 
+In the root directory of the clonned repository you can place the following definition file (taken from issue #23
 in this repository): 
 
 ``` AF3.def
