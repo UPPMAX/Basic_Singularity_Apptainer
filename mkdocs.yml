@@ -43,6 +43,7 @@ nav:
     - Gromacs in a container: mpi_gromacs.md
     - Singularity/Apptainer MPI@Kebnekaise: openmpi-benchmark.md
     - NAMD3 on AMD GPUs @Kebnekaise: namd.md
+    - Alphafold3 on GPUs @Kebnekaise: af3.md
     - Convert Docker image to Singularity container: docker2singularity.md
     - Building from Singularity image: localimage.md
     - Multi-Stage Builds: multi-stage_builds.md

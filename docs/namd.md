@@ -16,7 +16,7 @@ apptainer pull docker://amdih/namd3:3.0a9
 apptainer shell namd3_3.0a9.sif
 ```
 
-This software requires to accept the terms of a license. The license together with 
+This software requires that you accept the terms of a license. The license together with 
 examples and benchmarks can be found at [here](https://www.ks.uiuc.edu/Research/namd/benchmarks/).
 One can use the following batch script to run this software. 
 
