@@ -2,7 +2,7 @@
 
 Let's practice a bit running one of the containers from the previous step.
 ```bash
-$ singularity pull lolcow.sif docker://godlovedc/lolcow
+$ singularity pull lolcow.sif docker://sylabsio/lolcow
 ```
 This will pull the Docker image in to A singularity container with name `lolcow.sif`.
 
@@ -12,11 +12,9 @@ Executing the container file itself or a remote build will start will execute th
 
 ```
 $ ./lolcow.sif 
-_________________________________________
-/ You will stop at nothing to reach your  \
-| objective, but only because your brakes |
-\ are defective.                          /
- -----------------------------------------
+ ________________________________
+< Thu Oct 2 09:39:31 Europe 2025 >
+ --------------------------------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
@@ -27,10 +25,9 @@ _________________________________________
 
 ```
 $ singularity run ./lolcow.sif 
- _____________________________________
-/ Don't relax! It's only your tension \
-\ that's holding you together.        /
- -------------------------------------
+ ________________________________
+< Thu Oct 2 09:39:39 Europe 2025 >
+ --------------------------------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
@@ -53,7 +50,7 @@ Singularity>
 Let's see what the container gives us.  
 Running the container, runs previously defined command - in this case.
 ```bash
-/bin/sh -c fortune | cowsay | lolcat
+/bin/sh -c date | cowsay | lolcat
 ```
 This uses the container shell, to run three programs that were setup and provided in the container (instead of some heavy calculation tools).
 

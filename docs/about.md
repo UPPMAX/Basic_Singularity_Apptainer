@@ -2,13 +2,6 @@
 
 This web page is a supplementary material to the [NAISS](https://naiss.se){target=_blank} "Basic Singularity/Apptainer" workshop.
 
-### Singularity user guildes at SNIC centers
-- [UPPMAX](https://www.uppmax.uu.se/support/user-guides/singularity-user-guide/){target=_blank}
-- [NSC](https://www.nsc.liu.se/support/singularity/){target=_blank}
-- [HPC2N](https://www.hpc2n.umu.se/resources/software/singularity){target=_blank}
-- [PDC](https://www.pdc.kth.se/software/software/singularity/index_general.html){target=_blank}
-- [C3SE](https://www.c3se.chalmers.se/documentation/applications/containers-advanced/){target=_blank}
-
 ### Course feedback
 - 2025.10.13 | [2025.01.03](https://docs.google.com/forms/d/1O4RpVcJ70Wo3Sz-QtuQmOxMg-omARiSsY9e3mH539NA/viewanalytics)
 - [2024.10.16](https://docs.google.com/forms/d/10-8gvNHDKP2O4UcV7yB0x6Mk9Skd-iAi5ohChLRUJyQ/viewanalytics) | 

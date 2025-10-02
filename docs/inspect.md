@@ -14,7 +14,7 @@ Inspect will show you labels, environment variables, apps and scripts associated
 $ singularity inspect -d lolcow.sif
 
 BootStrap: docker
-From: ubuntu:16.04
+From: ubuntu:24.04
 
 %post
   apt-get -y update

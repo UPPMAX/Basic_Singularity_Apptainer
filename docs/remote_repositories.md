@@ -2,7 +2,7 @@
 
 Let us try to run a small and simple container from Docker Hub repository. Singularity, will pull the docker image in the cache, convert it and run it. The output should look something like this:
 
-!!! note
+!!! warning "Important - reminder"
     Environmental variables that will help you to redirect potentially large folders to alternative location - keep in mind that your `$HOME` folder is relatively small in size.
 
     ```bash
@@ -19,59 +19,39 @@ Let us try to run a small and simple container from Docker Hub repository. Singu
 
 
 ``` bash
-$ singularity run docker://godlovedc/lolcow
+$ singularity run docker://sylabsio/lolcow
 
 INFO:    Converting OCI blobs to SIF format
 INFO:    Starting build...
-Getting image source signatures
-Copying blob 9fb6c798fa41 done  
-Copying blob 3b61febd4aef done  
-Copying blob 9d99b9777eb0 done  
-Copying blob d010c8cf75d7 done  
-Copying blob 7fac07fb303e done  
-Copying blob 8e860504ff1e done  
-Copying config 73d5b1025f done  
-Writing manifest to image destination
-Storing signatures
-...
-2021/03/15 11:18:19  info unpack layer: sha256:3b61febd4aefe982e0cb9c696d415137384d1a01052b50a85aae46439e15e49a
-2021/03/15 11:18:19  info unpack layer: sha256:9d99b9777eb02b8943c0e72d7a7baec5c782f8fd976825c9d3fb48b3101aacc2
-2021/03/15 11:18:19  info unpack layer: sha256:d010c8cf75d7eb5d2504d5ffa0d19696e8d745a457dd8d28ec6dd41d3763617e
-2021/03/15 11:18:19  info unpack layer: sha256:7fac07fb303e0589b9c23e6f49d5dc1ff9d6f3c8c88cabe768b430bdb47f03a9
-2021/03/15 11:18:19  info unpack layer: sha256:8e860504ff1ee5dc7953672d128ce1e4aa4d8e3716eb39fe710b849c64b20945
+INFO:    Fetching OCI image...
+27.2MiB / 27.2MiB [====================================================================================================] 100 % 8.5 MiB/s 0s
+45.8MiB / 45.8MiB [====================================================================================================] 100 % 8.5 MiB/s 0s
+INFO:    Extracting OCI image...
+INFO:    Inserting Singularity configuration...
 INFO:    Creating SIF file...
- __________________________________
-/ Someone is speaking well of you. \
-|                                  |
-\ How unusual!                     /
- ----------------------------------
+ ________________________________
+< Thu Oct 2 09:35:31 Europe 2025 >
+ --------------------------------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
                 ||----w |
                 ||     ||
 ```
-!!! Warning  
-    If you experience problem like this  
-    > FATAL:   Unable to handle docker://godlovedc/lolcow uri: while building SIF from layers: conveyor failed to get: while checking OCI image: image (linux/amd64) does not satisfy required platform (linux/arm64)
-    
-    use this container instead `docker://sylabsio/lolcow`.  
-    It executes `date | cowsay | lolcat` in the container instead.
-
 The container executes predefined command `fortune | cowsay | lolcat`.
 
-- `fortune` - print a random, hopefully interesting, adage.
+- `date` - print current date and time.
 - `cowsay` - configurable speaking/thinking cow (and a bit more)
 - `lolcat` - rainbow coloring effect for text console display
 
 Let's run it again.
 ``` bash
-$ singularity run docker://godlovedc/lolcow
+$ singularity run docker://sylabsio/lolcow
 
 INFO:    Using cached SIF image
- ___________________________
-< You are as I am with You. >
- ---------------------------
+ ________________________________
+< Thu Oct 2 09:37:31 Europe 2025 >
+ --------------------------------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\

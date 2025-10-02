@@ -7,7 +7,7 @@ In this simple example we will build Singularity container that will run the fol
 !!! note "lolcow.def"
     ``` singularity
     BootStrap: docker
-    From: ubuntu:16.04
+    From: ubuntu:24.04
 
     %post
       apt-get -y update
@@ -70,7 +70,7 @@ _________________________________________
 !!! note "lolcow.def"
     ``` singularity linenums="1"
     BootStrap: docker
-    From: ubuntu:16.04
+    From: ubuntu:24.04
 
     %post
       apt-get -y update

@@ -3,7 +3,7 @@ repo_url: https://github.com/UPPMAX/Basic_Singularity_Apptainer
 edit_uri: edit/main/docs/
 nav:
   - Home: index.md
-  - How to install: installation.md
+  - Quick start: quick_start.md
   - First steps:
     - 1.Running containrs from online repositories: remote_repositories.md
     - 2.Running Singularity container: running_singularity.md
@@ -13,7 +13,6 @@ nav:
     - 6.Inspect containers: inspect.md
   - Additional:
     - Building remotely: remote_builder.md
-    - Building with --fakeroot: fakeroot.md
     - Building with Seqera containers: seqera-containers.md
     - Building interactively (sandbox): sandbox.md
     - NVIDIA Deep Learning Frameworks: PyTorch_NVIDIA.md  
