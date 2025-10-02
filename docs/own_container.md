@@ -2,32 +2,30 @@
 
 Let's start with a simple example.  
 
-Here is a definition file to install the [Paraview](https://www.paraview.org/) program in virtual environment conveniently provided by the Ubuntu distribution via the docker hub repository.
+Here is a definition file to install the [IGV desktop](https://igv.org/doc/desktop/) program in virtual environment conveniently provided by the Ubuntu distribution via the docker hub repository.
 
-!!! note "paraview.def"
+!!! note "igv.def"
     ``` singularity
     Bootstrap: docker
-    From: ubuntu:20.04
+    From: ubuntu:24.04
 
     %post
       export DEBIAN_FRONTEND=noninteractive
       
       apt-get update && apt-get -y dist-upgrade && \
-      apt-get install -y paraview && \
+      apt-get install -y x11-apps igv && \
       apt-get clean
 
       # Patch for old kernels like the one on Rackham running CentOS 7 - 2024.02.23
       # strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
 
     %runscript
-      paraview "$@"
+      igv "$@"
     ```
 
 ``` bash
-$ sudo singularity build paraview.sif paraview.def
+$ sudo singularity build igv.sif igv.def
 ```
 
-This will download 301 MB and install 500 new packages... It might take some time to complete, but once you are done you will have a container that will run almost everywhere - there is always a catch.
-
-Instead of paraview, modify the definition file to install and run your, not necessarily graphical, program. Few tips: `gnuplot`, `grace`, `blender`, `povray`, `rasmol`  ...
+Instead of igv, modify the definition file to install and run your, not necessarily graphical, program. Few tips: `gnuplot`, `grace`, `blender`, `povray`, `rasmol`  ...
 

@@ -18,7 +18,7 @@ Let us try to run a small and simple container from Docker Hub repository. Singu
     ```
 
 
-``` bash
+```
 $ singularity run docker://sylabsio/lolcow
 
 INFO:    Converting OCI blobs to SIF format
@@ -45,7 +45,7 @@ The container executes predefined command `fortune | cowsay | lolcat`.
 - `lolcat` - rainbow coloring effect for text console display
 
 Let's run it again.
-``` bash
+```
 $ singularity run docker://sylabsio/lolcow
 
 INFO:    Using cached SIF image
@@ -62,7 +62,7 @@ Note, that singularity, after contacting the repositories, realizes that the con
 
 [More details...](https://sylabs.io/guides/latest/user-guide/singularity_and_docker.html)
 
-``` bash
+``` 
 $ singularity cache list
 
 There are 1 container file(s) using 87.96 MiB and 8 oci blob file(s) using 99.09 MiB of space

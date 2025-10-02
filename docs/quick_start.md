@@ -41,7 +41,7 @@ This is the preferred setup if you plan to experiment and build containers yours
     There is a possibility to [install Apptainer as unprivileged user](https://apptainer.org/docs/admin/1.3/installation.html#install-unprivileged-from-pre-built-binaries), providing that the requirements are satisfied.
 
 ### Singularity 
-- Linux pre-build packages are provided for `.deb` and `.rpm`based distributions [link](https://github.com/sylabs/singularity/releases)
+- Linux pre-built packages are provided for `.deb` and `.rpm`based distributions [link](https://github.com/sylabs/singularity/releases)
   ``` bash
   # Ubuntu 24.04
   wget https://github.com/sylabs/singularity/releases/download/v4.3.3/singularity-ce_4.3.3-noble_amd64.deb
@@ -66,7 +66,7 @@ This is the preferred setup if you plan to experiment and build containers yours
 
 [https://sylabs.io/guides/latest/admin-guide/installation.html#testing-checking-the-build-configuration](https://sylabs.io/guides/latest/admin-guide/installation.html#testing-checking-the-build-configuration){target=_blank}
 
-``` bash
+```
 $ singularity 
 
 Usage:
@@ -102,7 +102,7 @@ Run 'singularity --help' for more detailed usage information.
 
 ## Checking the configuration
 
-``` bash
+```
 $ singularity buildcfg
 
 PACKAGE_NAME=singularity
