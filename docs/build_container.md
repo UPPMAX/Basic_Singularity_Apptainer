@@ -24,7 +24,7 @@ In this simple example we will build Singularity container that will run the fol
 ## Building the container
 
 ``` bash
-$ sudo singularity build lolcow.sif lolcow.def
+$ singularity build lolcow.sif lolcow.def
 
 Starting build...
 Getting image source signatures
