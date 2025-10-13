@@ -11,7 +11,7 @@ This will pull the Docker image in to A singularity container with name `lolcow.
 Executing the container file itself or a remote build will start will execute the commands defined in the `%runscript` section. This is equivalent to run `singularity run ./lolcow.sif`
 
 ```
-$ ./lolcow.sif 
+$ ./lolcow_latest.sif 
  ________________________________
 < Thu Oct 2 09:39:31 Europe 2025 >
  --------------------------------
@@ -24,7 +24,7 @@ $ ./lolcow.sif
 
 
 ```
-$ singularity run ./lolcow.sif 
+$ singularity run ./lolcow_latest.sif 
  ________________________________
 < Thu Oct 2 09:39:39 Europe 2025 >
  --------------------------------
@@ -39,7 +39,7 @@ $ singularity run ./lolcow.sif
 ## Getting a shell in the running container
 
 ``` bash
-$ singularity shell ./lolcow.sif 
+$ singularity shell ./lolcow_latest.sif 
 Singularity>
 ```
 
@@ -63,10 +63,10 @@ This uses the container shell, to run three programs that were setup and provide
 There is of course a way to start a different program than the default shell or the defined in the `%runscript` section.
 
 ``` bash
-$ singularity exec ./lolcow.sif fortune
-Beauty and harmony are as necessary to you as the very breath of life.
+$ singularity exec ./lolcow_latest.sif date
+Mon Oct 13 06:46:12 Europe 2025
 
-$ singularity exec  ./lolcow.sif host
+$ singularity exec  ./lolcow_latest.sif host
 FATAL:   "host": executable file not found in $PATH
 ```
 
