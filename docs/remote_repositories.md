@@ -38,7 +38,7 @@ INFO:    Creating SIF file...
                 ||----w |
                 ||     ||
 ```
-The container executes predefined command `fortune | cowsay | lolcat`.
+The container executes predefined command `date | cowsay | lolcat`.
 
 - `date` - print current date and time.
 - `cowsay` - configurable speaking/thinking cow (and a bit more)
