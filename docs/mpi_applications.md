@@ -3,6 +3,8 @@
 > The Singularity documentation is excellent starting point - [link](https://sylabs.io/guides/3.8/user-guide/mpi.html)     
 The C3SE Singularity has really nice summary as well - [link](https://www.c3se.chalmers.se/documentation/applications/containers/)
 
+# **Host based or Hybrid mode**
+
 Here is an example of simple MPI program compiled with OpenMPI 4.1.2 in Ubuntu 22.04 container.
 
 
@@ -171,4 +173,131 @@ singularity exec mpi-test.sif  mpirun --launch-agent 'singularity exec /FULL_PAT
     route found between them. Please check network connectivity
     (including firewalls and network routing requirements).
     --------------------------------------------------------------------------
+    ```
+
+
+# **Binding mode**
+
+It is also possible to run MPI programs with Apptainer where the MPI library is only present in the
+Host. An advantage of this mode is that the size of the final image can be reduced. A possible drawback is that one
+will need to bind manually the required libraries for the MPI program. 
+
+In the following paragraphs, we will show how to run a simple MPI example in the binding mode. This program
+prints out the ranks IDs out of the total number of ranks requested.
+
+??? note "hello_mpi.c"
+    ```c++
+    #include <mpi.h>
+    #include <stdio.h>
+    
+    int main(int argc, char** argv) {
+        MPI_Init(&argc, &argv);
+        int rank, size;
+        MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+        MPI_Comm_size(MPI_COMM_WORLD, &size);
+        printf("Hello from rank %d out of %d\n", rank, size);
+        MPI_Finalize();
+        return 0;
+    }
+    ```
+
+
+> **Load the OpenMPI modules and compile (Kebnekaise)**
+```
+ml GCC/13.3.0 OpenMPI/5.0.3
+
+mpicc hello_mpi.c -o hello_mpi
+```
+
+The list of dynamic dependencies for the executable can be found as follows:
+
+ 
+> **linked libraries**
+```
+ldd hello_mpi
+
+Output (Kebnekaise):
+	linux-vdso.so.1 (0x00007uauao3cb000)
+	libmpi.so.40 => /software/OpenMPI/5.0.3-GCC-13.3.0/lib/libmpi.so.40 (0x00007oauaoe42e000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007aouaoec223000)
+        ...
+```
+
+Write a batch script where all the paths to the dependencies are included:
+
+```slurm hl_lines="8"
+#!/bin/bash
+#SBATCH -A hpc2n202u-xyz
+#SBATCH -N 2
+#SBATCH -n 28
+#SBATCH -t 00:03:00
+
+ml GCC/13.3.0 OpenMPI/5.0.3
+
+export UCX_NET_DEVICES=all
+export UCX_TLS=tcp
+mpirun -np 28 apptainer exec --bind /hpc2n/eb/software/OpenMPI/5.0.3-GCC-13.3.0 --bind /hpc2n/eb/software/UCC/1.3.0-GCCcore-13.3.0 --bind /hpc2n/eb/software/UCX/1.16.0-GCCcore-13.3.0 --bind /hpc2n/eb/software/binutils/2.42-GCCcore-13.3.0 --bind /hpc2n/eb/software/PMIx/5.0.2-GCCcore-13.3.0 --bind /lib/x86_64-linux-gnu --bind /lib --bind /hpc2n/eb/software/libevent/2.1.12-GCCcore-13.3.0 --bind /hpc2n/eb/software/hwloc/2.10.0-GCCcore-13.3.0  mpi_test.sif /opt/app/hello_mpi
+```
+
+The UCX variables are used to detect all network interfaces. A possible output looks like this:
+
+
+??? note "output"
+    ```
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Warning: program compiled against libxml 212 using older 209
+    Hello from rank 11 out of 28
+    Hello from rank 0 out of 28
+    Hello from rank 10 out of 28
+    Hello from rank 13 out of 28
+    Hello from rank 12 out of 28
+    Hello from rank 15 out of 28
+    Hello from rank 17 out of 28
+    Hello from rank 19 out of 28
+    Hello from rank 2 out of 28
+    Hello from rank 9 out of 28
+    Hello from rank 18 out of 28
+    Hello from rank 7 out of 28
+    Hello from rank 14 out of 28
+    Hello from rank 16 out of 28
+    Hello from rank 5 out of 28
+    Hello from rank 3 out of 28
+    Hello from rank 6 out of 28
+    Hello from rank 8 out of 28
+    Hello from rank 1 out of 28
+    Hello from rank 22 out of 28
+    Hello from rank 4 out of 28
+    Hello from rank 20 out of 28
+    Hello from rank 21 out of 28
+    Hello from rank 23 out of 28
+    Hello from rank 24 out of 28
+    Hello from rank 27 out of 28
+    Hello from rank 25 out of 28
+    Hello from rank 26 out of 28
     ```
