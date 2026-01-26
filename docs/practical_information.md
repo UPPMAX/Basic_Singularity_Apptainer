@@ -1,11 +1,11 @@
 # Practical information
 
-> Information updated: 2025.10.02
+> Information updated: 2026.01.26
 
 :loudspeaker: - [**Announcement and registration**](https://docs.uppmax.uu.se/courses_workshops/singularity/)  
 :classical_building: -  **Place:** The workshop will be online via Zoom.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Link will be sent a week before the workshop_.  
-:watch: - **Time:** - 13 October, 2025  
+:watch: - **Time:** - 19 February, 2026  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 09:15-12:00  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 13:15-16:00  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(_If you need help with the workshop setup, the meeting will be open from 8:50_)  
