@@ -16,15 +16,10 @@ The setup provided by computer centers are enough for the most common tasks - ru
     Keep in mind that your `$HOME` folder is relatively small in size. Consider adding the settings in your `~/.bashrc` file.
 
     ```bash
-    export PROJECT=project_folder
+    export SINGULARITY_CACHEDIR=/proj/nais-XXXX-XX/nobackup/SINGULARITY_CACHEDIR
+    export APPTAINER_CACHEDIR=${SINGULARITY_CACHEDIR}
 
-    export SINGULARITY_CACHEDIR=/proj/${PROJECT}/nobackup/SINGULARITY_CACHEDIR
-    export SINGULARITY_TMPDIR=/proj/${PROJECT}/nobackup/SINGULARITY_TMPDIR
-
-    export APPTAINER_CACHEDIR=/proj/${PROJECT}/nobackup/SINGULARITY_CACHEDIR
-    export APPTAINER_TMPDIR=/proj/${PROJECT}/nobackup/SINGULARITY_TMPDIR
-
-    mkdir -p $APPTAINER_CACHEDIR $APPTAINER_TMPDIR
+    mkdir -p $APPTAINER_CACHEDIR
     ```
 
 
