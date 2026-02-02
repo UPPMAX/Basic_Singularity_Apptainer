@@ -13,7 +13,7 @@
 ## 3. Pushing container
 
 ```
-$ singularity push my-container.sif library://your-name/project-dir/my-container:latest
+singularity push my-container.sif library://your-name/project-dir/my-container:latest
 ```
 
 !!! info

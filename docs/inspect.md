@@ -3,7 +3,7 @@
 [Online documentation](https://sylabs.io/guides/3.7/user-guide/cli/singularity_inspect.html)
 
 ``` bash
-$ singularity inspect [inspect options...] <image path>
+singularity inspect [inspect options...] <image path>
 ```
 Inspect will show you labels, environment variables, apps and scripts associated with the image determined by the flags you pass.
 
@@ -11,7 +11,7 @@ Inspect will show you labels, environment variables, apps and scripts associated
 `-d` - show the Singularity recipe file that was used to generate the image
 
 ```
-$ singularity inspect -d lolcow.sif
+singularity inspect -d lolcow.sif
 
 BootStrap: docker
 From: ubuntu:24.04
@@ -30,7 +30,7 @@ From: ubuntu:24.04
 
 `-e` - show the environment settings for the image
 ```
-$ singularity inspect -e lolcow.sif
+singularity inspect -e lolcow.sif
 
 === /.singularity.d/env/10-docker2singularity.sh ===
 #!/bin/sh
@@ -46,7 +46,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 ```
 `-r` - show the runscript for the image
 ```
-$ singularity inspect -r lolcow.sif
+singularity inspect -r lolcow.sif
 
 #!/bin/sh
 

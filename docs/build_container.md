@@ -24,7 +24,7 @@ In this simple example we will build Singularity container that will run the fol
 ## Building the container
 
 ``` bash
-$ singularity build lolcow.sif lolcow.def
+singularity build lolcow.sif lolcow.def
 
 Starting build...
 Getting image source signatures
@@ -47,7 +47,7 @@ INFO:    Build complete: lolcow.sif
 ## Run the Singularity container
 
 ```
-$ ./lolcow.sif 
+./lolcow.sif 
 _________________________________________
 / You will stop at nothing to reach your  \
 | objective, but only because your brakes |

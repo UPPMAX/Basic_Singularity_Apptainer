@@ -24,7 +24,7 @@ Here is a definition file to install the [IGV desktop](https://igv.org/doc/deskt
     ```
 
 ``` bash
-$ sudo singularity build igv.sif igv.def
+sudo singularity build igv.sif igv.def
 ```
 
 Instead of igv, modify the definition file to install and run your, not necessarily graphical, program. Few tips: `gnuplot`, `grace`, `blender`, `povray`, `rasmol`  ...

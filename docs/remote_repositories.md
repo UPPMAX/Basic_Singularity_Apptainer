@@ -6,20 +6,15 @@ Let us try to run a small and simple container from Docker Hub repository. Singu
     Environmental variables that will help you to redirect potentially large folders to alternative location - keep in mind that your `$HOME` folder is relatively small in size.
 
     ```bash
-    export PROJECT=project_folder
+    export SINGULARITY_CACHEDIR=/proj/nais-XXX-XX/nobackup/SINGULARITY_CACHEDIR
+    export APPTAINER_CACHEDIR=${SINGULARITY_CACHEDIR}
 
-    export SINGULARITY_CACHEDIR=/proj/${PROJECT}/nobackup/SINGULARITY_CACHEDIR
-    export SINGULARITY_TMPDIR=/proj/${PROJECT}/nobackup/SINGULARITY_TMPDIR
-
-    export APPTAINER_CACHEDIR=/proj/${PROJECT}/nobackup/SINGULARITY_CACHEDIR
-    export APPTAINER_TMPDIR=/proj/${PROJECT}/nobackup/SINGULARITY_TMPDIR
-
-    mkdir -p $APPTAINER_CACHEDIR $APPTAINER_TMPDIR
+    mkdir -p $APPTAINER_CACHEDIR
     ```
 
 
 ```
-$ singularity run docker://sylabsio/lolcow
+singularity run docker://sylabsio/lolcow
 
 INFO:    Converting OCI blobs to SIF format
 INFO:    Starting build...
@@ -46,7 +41,7 @@ The container executes predefined command `date | cowsay | lolcat`.
 
 Let's run it again.
 ```
-$ singularity run docker://sylabsio/lolcow
+singularity run docker://sylabsio/lolcow
 
 INFO:    Using cached SIF image
  ________________________________
@@ -63,7 +58,7 @@ Note, that singularity, after contacting the repositories, realizes that the con
 [More details...](https://sylabs.io/guides/latest/user-guide/singularity_and_docker.html)
 
 ``` 
-$ singularity cache list
+singularity cache list
 
 There are 1 container file(s) using 87.96 MiB and 8 oci blob file(s) using 99.09 MiB of space
 Total space used: 187.04 MiB
@@ -71,7 +66,7 @@ Total space used: 187.04 MiB
 !!! info
     Over time the cache will grow and might easily accumulate unnecessary "blobs". To clean the cache you can run.
     ``` bash
-    $ singularity cache clean
+    singularity cache clean
     ```
     Here is how the cache might look like:
     ``` bash
@@ -91,7 +86,7 @@ Total space used: 187.04 MiB
 ## More examples
 
 ```
-$ singularity run docker://dctrud/wttr
+singularity run docker://dctrud/wttr
 ```
 ![output](images/wttr.png)
 
@@ -106,12 +101,12 @@ Here is an example how to use the metaWRAP pipeline from the docker container - 
 
 ``` bash
 # Original instructions (do NOT run)
-$ docker pull quay.io/biocontainers/metawrap:1.2--1
+docker pull quay.io/biocontainers/metawrap:1.2--1
 ```
 In this particular case it is as easy as:
 
 ```
-$ singularity pull docker://quay.io/biocontainers/metawrap:1.2--1
+singularity pull docker://quay.io/biocontainers/metawrap:1.2--1
 
 INFO:    Converting OCI blobs to SIF format
 INFO:    Starting build...
@@ -124,7 +119,7 @@ Then, one can start the container and use it interactively.
 In this particular case, executing the Singularity container gives us a shell running in the container.
 
 ```
-$ ./metawrap_1.2--1.sif
+./metawrap_1.2--1.sif
 WARNING: Skipping mount /usr/local/var/singularity/mnt/session/etc/resolv.conf [files]: /etc/resolv.conf doesn't exist in container
 
 Singularity> metawrap --version
@@ -137,7 +132,7 @@ Original commad in the cript:
 ```$ metawrap binning -o Lanna-straw_initial_binning_concoct -t 20 -a /proj/test/megahit_ass_Lanna-straw/final.contigs.fa --concoct --run-checkm /proj/test/Lanna-straw_reads_trimmed/*.fastq```
 
 The command now calls the tool from the Singularity container:  
-```$ singularity exec metawrap_1.2--1.sif metawrap binning -o Lanna-straw_initial_binning_concoct -t 20 -a /proj/test/megahit_ass_Lanna-straw/final.contigs.fa --concoct --run-checkm /proj/test/Lanna-straw_reads_trimmed/*.fastq```
+```singularity exec metawrap_1.2--1.sif metawrap binning -o Lanna-straw_initial_binning_concoct -t 20 -a /proj/test/megahit_ass_Lanna-straw/final.contigs.fa --concoct --run-checkm /proj/test/Lanna-straw_reads_trimmed/*.fastq```
 
 !!! info "Pulling Singularity container from online or local library/repository"
     - **library://** to build from the [Container Library](https://    cloud.sylabs.io/library)  
@@ -153,7 +148,7 @@ The command now calls the tool from the Singularity container:
 Let's have some tensorflow running. First `pull` the image from docker hub (~2.6GB).  
 
 ```
-$ singularity pull docker://tensorflow/tensorflow:latest-gpu
+singularity pull docker://tensorflow/tensorflow:latest-gpu
 
 INFO:    Converting OCI blobs to SIF format
 INFO:    Starting build...
@@ -166,7 +161,7 @@ If you have a GPU card, here is how easy you can get tensorflow running. Note th
 ---
 
 ``` python
-$ singularity exec --nv tensorflow_latest-gpu.sif python3
+singularity exec --nv tensorflow_latest-gpu.sif python3
 
 Python 3.8.10 (default, Nov 26 2021, 20:14:08) 
 [GCC 9.3.0] on linux

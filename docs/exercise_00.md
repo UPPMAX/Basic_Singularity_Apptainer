@@ -3,14 +3,14 @@
 Let's start with something easy and fast to build - Install the [figlet](http://www.figlet.org/examples.html) app in a container.
 
 ```
-$ figlet UPPMAX
+figlet UPPMAX
  _   _ ____  ____  __  __    _    __  __
 | | | |  _ \|  _ \|  \/  |  / \   \ \/ /
 | | | | |_) | |_) | |\/| | / _ \   \  / 
 | |_| |  __/|  __/| |  | |/ ___ \  /  \ 
  \___/|_|   |_|   |_|  |_/_/   \_\/_/\_\
 
- $ figlet -f slant UPPMAX
+figlet -f slant UPPMAX
    __  ______  ____  __  ______   _  __
   / / / / __ \/ __ \/  |/  /   | | |/ /
  / / / / /_/ / /_/ / /|_/ / /| | |   / 
@@ -66,5 +66,5 @@ Let's use Ubuntu from Docker to install the package.
 
 ??? note "build"
     ```
-    $ sudo singularity build figlet.sif figlet.def
+    sudo singularity build figlet.sif figlet.def
     ```

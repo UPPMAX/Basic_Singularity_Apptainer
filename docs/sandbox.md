@@ -17,7 +17,7 @@ Let's try this with something which might or might not  work - install jupyter w
 Select location where you will create the new container-folder - in this case jupyter-sb
 
 ``` bash
-$ sudo singularity build --sandbox jupyter-sb docker://ubuntu:20.04
+sudo singularity build --sandbox jupyter-sb docker://ubuntu:20.04
 
 INFO:    Starting build...
 Getting image source signatures
@@ -34,7 +34,7 @@ INFO:    Creating sandbox directory...
 INFO:    Build complete: jupyter
 
 # List the current folder - note that the jupyter-sb is owned by root
-$ ls -l
+ls -l
 
 total 4
 drwxr-xr-x 18 root root 4096 Mar 15 13:17 jupyter-sb
@@ -51,7 +51,7 @@ From: ubuntu:20.04
 Let's "jump inside" the container (ignore the warning)
 
 ``` bash
-$ sudo singularity shell --writable jupyter-sb
+sudo singularity shell --writable jupyter-sb
 
 WARNING: Skipping mount /etc/localtime [binds]: /etc/localtime doesn't exist in container
 Singularity>
@@ -157,7 +157,7 @@ Exit from the container `exit`. Add `%runscript`. Try to build the recipe you ha
 !!! hint
     You can convert the sandbox container to a regular single file container with
     ``` bash
-    $ singularity build jupyter.sif jupyter-sb
+    singularity build jupyter.sif jupyter-sb
     ```
 
 When it is done, try to run it with `./jupyter.sif`. Does it work? Can you open the address with the browser? Yes, you can install whatever packages you want and they will be available and preset in the container.
@@ -167,5 +167,5 @@ Keep in mind that you have installed all packages with pip in the container at s
 When you are done experimenting, and your recipe builds and works, do not forget to delete the sandbox. Be careful, you will need run `rm -r` with `sudo`. Slow down. Check twice when you run
 
 ``` bash
-$ sudo rm -r jupyter-sb
+sudo rm -r jupyter-sb
 ```
