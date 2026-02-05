@@ -1,6 +1,7 @@
 # [pixi](https://pixi.prefix.dev/latest/) and [uv](https://docs.astral.sh/uv/) in a container
 
-Here is an example basic template to setup both tools in a Singularity container.
+Here is an example basic template to setup both tools in a Singularity container.  
+(or this project [Pixitainer](https://github.com/RaphaelRibes/pixitainer) for an alternative approach)
 
 ```singularity
 Bootstrap: docker          
