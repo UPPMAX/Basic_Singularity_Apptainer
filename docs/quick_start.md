@@ -17,6 +17,8 @@ The setup provided by computer centers are enough for the most common tasks - ru
 
     ```bash
     export SINGULARITY_CACHEDIR=/proj/nais-XXXX-XX/nobackup/SINGULARITY_CACHEDIR
+    ```
+    ```bash
     export APPTAINER_CACHEDIR=${SINGULARITY_CACHEDIR}
 
     mkdir -p $APPTAINER_CACHEDIR
@@ -63,7 +65,11 @@ This is the preferred setup if you plan to experiment and build containers yours
 
 ```
 $ singularity 
+```
 
+This will show something similar as below
+
+```
 Usage:
   singularity [global options...] <command>
 
@@ -99,7 +105,10 @@ Run 'singularity --help' for more detailed usage information.
 
 ```
 $ singularity buildcfg
+```
+This will show something similar as below
 
+```
 PACKAGE_NAME=singularity
 PACKAGE_VERSION=3.10.2
 BUILDDIR=/root/singularity/builddir

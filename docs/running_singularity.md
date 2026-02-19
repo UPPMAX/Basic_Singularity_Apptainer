@@ -12,6 +12,8 @@ Executing the container file itself or a remote build will start will execute th
 
 ```
 ./lolcow.sif 
+```
+```
  ________________________________
 < Thu Oct 2 09:39:31 Europe 2025 >
  --------------------------------
@@ -25,6 +27,8 @@ Executing the container file itself or a remote build will start will execute th
 
 ```
 singularity run ./lolcow.sif 
+```
+```
  ________________________________
 < Thu Oct 2 09:39:39 Europe 2025 >
  --------------------------------
@@ -40,6 +44,8 @@ singularity run ./lolcow.sif
 
 ``` bash
 singularity shell ./lolcow.sif 
+```
+```
 Singularity>
 ```
 
@@ -60,13 +66,19 @@ This uses the container shell, to run three programs that were setup and provide
 - Singularity binds the user home folder, `/tmp` and some other by default. If you are running on a computer with more users accounts than your own (like on a computer cluster) compare the content of `ls -l /home` from within the container and outside. You should not be able to see the other users' folders that are on the computer otherwise.
 
 ## Execute program in the container
+
 There is of course a way to start a different program than the default shell or the defined in the `%runscript` section.
 
-``` bash
+```bash
 singularity exec ./lolcow.sif date
+```
+```bash
 Mon Oct 13 06:46:12 Europe 2025
-
+```
+```bash
 singularity exec  ./lolcow.sif host
+```
+```bash
 FATAL:   "host": executable file not found in $PATH
 ```
 

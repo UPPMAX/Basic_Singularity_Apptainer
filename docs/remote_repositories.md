@@ -8,13 +8,18 @@ Let us try to run a small and simple container from Docker Hub repository. Singu
     ```bash
     export SINGULARITY_CACHEDIR=/proj/nais-XXX-XX/nobackup/SINGULARITY_CACHEDIR
     export APPTAINER_CACHEDIR=${SINGULARITY_CACHEDIR}
+    ```
 
+    ```
     mkdir -p $APPTAINER_CACHEDIR
     ```
 
 
 ```
 singularity run docker://sylabsio/lolcow
+```
+
+```
 
 INFO:    Converting OCI blobs to SIF format
 INFO:    Starting build...
@@ -42,6 +47,9 @@ The container executes predefined command `date | cowsay | lolcat`.
 Let's run it again.
 ```
 singularity run docker://sylabsio/lolcow
+```
+
+```
 
 INFO:    Using cached SIF image
  ________________________________
@@ -59,6 +67,9 @@ Note, that singularity, after contacting the repositories, realizes that the con
 
 ``` 
 singularity cache list
+```
+
+```
 
 There are 1 container file(s) using 87.96 MiB and 8 oci blob file(s) using 99.09 MiB of space
 Total space used: 187.04 MiB
